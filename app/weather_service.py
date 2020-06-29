@@ -18,6 +18,18 @@ with open(csv_filepath, "r") as csv_file:
     for row in reader:
         parks.append(row)
 
+print("-----------------------------")
+print("Welcome to Happy Hiker!")
+print("-----------------------------")
+print("Please select from the list below: ")
+print("-----------------------------")
+
+original = []
+for z in parks:
+    print(z["park"])
+
+print("-----------------------------")
+
 destination = []
 while True:
     park_id = input("Hey Happy Hiker! Please Input Your Park: ")
@@ -33,9 +45,6 @@ for park_id in destination:
     matching_location = matching_locations[0]
     for i in matching_locations:
         zip_code = i["zipcode"]
-
-
-
 
 #load_dotenv()
 #
