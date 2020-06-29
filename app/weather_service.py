@@ -1,6 +1,7 @@
 # app/weather_service.py
 
 import os
+import pandas as pd
 import json
 from pprint import pprint
 
@@ -8,6 +9,10 @@ import requests
 from dotenv import load_dotenv
 
 from app import APP_ENV
+
+parks_df = pd.read_csv("Trail Park Database - Parks.csv")
+
+#print(parks_df["park"])
 
 load_dotenv()
 
@@ -42,7 +47,8 @@ def get_hourly_forecasts(zip_code=MY_ZIP, country_code=COUNTRY_CODE):
 if __name__ == "__main__":
 
     if APP_ENV == "development":
-        zip_code = input("PLEASE INPUT A ZIP CODE (e.g. 06510): ")
+        park_name = input("HEY HAPPY HIKER! PLEASE SELECT YOUR PARK (e.g. Bear Mountain State Park): ")
+
         results = get_hourly_forecasts(zip_code=zip_code) # invoke with custom params
     else:
         results = get_hourly_forecasts() # invoke with default params
